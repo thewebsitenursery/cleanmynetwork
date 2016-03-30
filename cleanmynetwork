@@ -1,0 +1,17 @@
+#bin/bash!
+## save this file to your ~/.bin directory as cleanmynetwork
+## run sudo chmod u+rx ~/.bin/cleanmynetwork
+## ensure ~/.bin is in your $PATH 
+## you can then clean your Internet / Network setting by typing "cleamynetwork" at the command line.
+
+echo ""
+echo "Cleaning your Internet Settings in 5 seconds"
+say "Cleaning your Internet Settings in 5 seconds";
+echo ""
+sleep 5
+sudo ifconfig en0 down && sudo ifconfig en0 up; sudo arp -nla && sudo arp -nda /
+sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder;
+echo ""
+echo "Network Settings Routing Tables & DNS flushed and clean"
+say  "Network Settings Routing Tables & DNS flushed and clean"
+
